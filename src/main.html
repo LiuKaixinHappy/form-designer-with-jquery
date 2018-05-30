@@ -1,22 +1,109 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>jQuery UI Selectable - Serialize</title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
-    <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+    <style>
+        /* Border styles */
+        #table thead, #table tr {
+            border-top: 1px solid rgb(211, 202, 221);
+            border-bottom: 1px solid rgb(211, 202, 221);
+        }
 
-    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="http://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src="../node_modules/lodash/lodash.min.js"></script>
+        #table {
+            width: 50%;
+            text-align: center;
+            border-bottom: 1px solid rgb(211, 202, 221);
+        }
+
+        /* Padding and font style */
+        #table td, #table th {
+            padding: 10px;
+            font-family: Verdana, serif;
+            color: rgb(95, 74, 121);
+        }
+
+        /* Alternating background colors */
+        #table tr:nth-child(even) {
+            background: rgb(223, 216, 232)
+        }
+
+        #table tr:nth-child(odd) {
+            background: #FFF
+        }
+
+        body {
+            font-size: 12px;
+        }
+
+        #feedback {
+            font-size: 1.4em;
+        }
+
+        #selectable .ui-selecting {
+            background: #FECA40;
+        }
+
+        #selectable .ui-selected {
+            background: #F39814;
+            color: white;
+        }
+
+        #selectable {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            width: 60%;
+        }
+
+        #selectable li {
+            margin: 3px;
+            padding: 0.4em;
+            font-size: 1.4em;
+            height: 18px;
+        }
+
+        #container {
+            align-content: right;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="js/main.js"></script>
-
-    <title>Form Designer</title>
 </head>
-
 <body>
-<div>
-    <div id="container"></div>
+
+<div id="container" class="ui-widget">
+    <table id="table" class="ui-widget ui-widget-content">
+        <thead>
+        <tr>
+            <th>字段名</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <div>
+        <button id="add_btn" class="ui-button ui-widget ui-corner-all">添加</button>
+        <button id="preview_btn" class="ui-button ui-widget ui-corner-all">预览</button>
+    </div>
 </div>
+
+<div id="dialog-form" title="请选择字段类型">
+    <p id="feedback">
+        <span>你选择的是:</span> <span id="select-result"></span>.
+    </p>
+
+    <ol id="selectable">
+        <li class="ui-widget-content">文本</li>
+        <li class="ui-widget-content">日期</li>
+    </ol>
+</div>
+
 </body>
 </html>
-
